@@ -35,6 +35,7 @@
 		<Unit filename="listaLocal.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="local.cpp" />
 		<Unit filename="local.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
