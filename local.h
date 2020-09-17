@@ -25,8 +25,7 @@
     NOTAS:
     Fijarse si CABA se considera provincia
     Fijarse si esta bien el struct y el constructor
-    Terminar el struct en el cpp
-    Buscar que poner por default en el atributo provincia
+    Buscar como trabajar con el enum
 */
 
 enum tProvincia {Buenos Aires, CABA, Catamarca, Chaco, Chubut, Cordoba, Corrientes, Entre Rios, Formosa, Jujuy, La Pampa, La Rioja, Mendoza, Misiones, Neuquen, Rio Negro, Salta, San Juan, San Luis, Santa Cruz, Santa Fe, Santiago del Estero, Tierra del Fuego, Tucuman};
@@ -48,12 +47,14 @@ typedef struct{
 //CONSTRUCTOR
 Local* crearLocal();
 
+Local* crearLocal(int codigoSucursal, tProvincia provincia, int cantidadArticulos, float monto, float metros, int casaMatriz);
+
 //DESTRUCTOR
 void destruirLocal(Local *local);
 
 
 
-//Getters y Setters
+//GETTERS Y SETTERS
 int getCodigoSucursal(Local *local);
 void setCodigoSucursal(Local *local,int codigoSucursal);
 
@@ -71,5 +72,11 @@ void setMetros(Local *local, float metros);
 
 int getCasaMatriz(Local *local);
 void setCasaMatriz(Local *local, int casaMatriz);
+
+/********************************************************************************************************************************/
+
+//MÉTODOS
+void mostrarLocal(Local *local);
+
 
 #endif // LOCAL_H_INCLUDED
