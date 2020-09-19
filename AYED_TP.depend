@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1600542969 source:c:\users\josé luis\desktop\facultad\algoritmos y estructuras de datos\tp final\tp_final_algoritmosyestructuras\local.cpp
+1600546103 source:c:\users\josé luis\desktop\facultad\algoritmos y estructuras de datos\tp final\tp_final_algoritmosyestructuras\local.cpp
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
 	<iostream>
 	"local.h"
 
-1600542790 c:\users\josé luis\desktop\facultad\algoritmos y estructuras de datos\tp final\tp_final_algoritmosyestructuras\local.h
+1600546103 c:\users\josé luis\desktop\facultad\algoritmos y estructuras de datos\tp final\tp_final_algoritmosyestructuras\local.h
 
