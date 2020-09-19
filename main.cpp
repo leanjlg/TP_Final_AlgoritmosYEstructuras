@@ -48,6 +48,7 @@ int main()
         char auxCodigoSucursal[i-desde];
         int codigoSucursal;
         char auxProvincia[i-desde];
+        enum tProvincia provincia;
         char auxCantidadArticulos[i-desde];
         int cantidadArticulos;
         char auxMonto[i-desde];
@@ -75,6 +76,12 @@ int main()
             for(desde; i; desde++){
                 int x = 0;
                 auxProvincia[x] == aux[desde];
+
+                if(strcmp (auxProvincia, "Buenos_Aires") == 0)  provincia = Buenos_Aires;
+                if(strcmp (auxProvincia, "CABA")         == 0)  provincia = CABA;
+                if(strcmp (auxProvincia, "Catamarca")    == 0)  provincia = Catamarca;
+
+
                 x++;
             }
             desde = i;
@@ -133,7 +140,7 @@ int main()
         }
 
         //Aca se supone que se empiezan a repetir las variables
-        mostrarLocal(crearLocal(codigoSucursal,auxProvincia,cantidadArticulos,monto,metros,casaMatriz) );
+        mostrarLocal(crearLocal(codigoSucursal,provincia,cantidadArticulos,monto,metros,casaMatriz) );
     }
 
 
