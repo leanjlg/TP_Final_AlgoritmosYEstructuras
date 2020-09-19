@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <iostream>
 #include "local.h"
-
+using namespace std;
 /********************************************************************************************************************************/
 /*
     ATRIBUTOS:
@@ -15,7 +16,7 @@
 
     AXIOMAS:
     codigoSucursal > 0
-    provincia (Buscar que poner por default)
+    provincia (Buenos_Aires por default)
     cantidadArticulos => 0
     monto >= 0
     metros > 0
@@ -23,7 +24,7 @@
 */
 /********************************************************************************************************************************/
 
-struct Local(
+struct LocalStruct{
 
     int codigoSucursal;
 	tProvincia provincia;
@@ -31,100 +32,103 @@ struct Local(
 	float monto;
 	float metros;
 	int casaMatriz;
-);
+
+};
 
 //Constructores
 //Constructor para que el usuario pueda crear locales
-Local* crearLocal(){
+/*Local crearLocal(){
 
-    Local* local = new Local;
-    setCodigoSucursal(local, 1);
-    setProvincia(local, 1);
-    setCantidadArticulos(local, 1);
-    setMonto(local, 0);
-    setMetros(local, 1);
-    setCasaMatriz(local, 1);
+    struct LocalStruct* Local = new LocalStruct;
 
-    return local;
-}
+    Local->codigoSucursal    = 1;
+    Local->provincia         = Buenos_Aires;
+    Local->cantidadArticulos = 1;
+    Local->monto             = 0;
+    Local->metros            = 1;
+    Local->casaMatriz        = 1;
+
+    return Local;
+}*/
 
 //Constructor para crear locales cuando se lee el archivo
-Local* crearLocal(int codigoSucursal, tProvincia provincia, int cantidadArticulos, float monto, float metros, int casaMatriz){
+Local crearLocal(int codigoSucursal, tProvincia provincia, int cantidadArticulos, float monto, float metros, int casaMatriz){
 
-    Local* local = new Local;
-    setCodigoSucursal(local, codigoSucursal);
-    setProvincia(local, provincia);
-    setCantidadArticulos(local, cantidadArticulos);
-    setMonto(local, monto);
-    setMetros(local, metros);
-    setCasaMatriz(local, casaMatriz);
+    struct LocalStruct* Local = new LocalStruct;
 
-    return local;
+    Local->codigoSucursal    = codigoSucursal;
+    Local->provincia         = provincia;
+    Local->cantidadArticulos = cantidadArticulos;
+    Local->monto             = monto;
+    Local->metros            = metros;
+    Local->casaMatriz        = casaMatriz;
+
+    return Local;
 }
 
 //Destructor
-void destruirLocal(Local *local){
+void destruirLocal(Local local){
     delete local;
 }
 
 
 //Getters y Setters
-int getCodigoSucursal(Local *local){
-    return local.codigoSucursal;
+int getCodigoSucursal(Local local){
+    return local->codigoSucursal;
 }
-void setCodigoSucursal(Local *local,int codigoSucursal){
-    if(codigoSucursal > 0) local.codigoSucursal = codigoSucursal;
-}
-
-
-tProvincia getProvincia(Local *local){
-    return local.provincia;
-}
-void setProvincia(Local *local, tProvincia provincia){
-    local.provincia = provincia;
+void setCodigoSucursal(Local local,int codigoSucursal){
+    if(codigoSucursal > 0) local->codigoSucursal = codigoSucursal;
 }
 
 
-int getCantidadArticulos(Local *local){
-    return local.cantidadArticulos;
+tProvincia getProvincia(Local local){
+    return local->provincia;
 }
-void setCantidadArticulos(Local *local, int cantidadArticulos){
-    if(cantidadArticulos >= 0) local.cantidadArticulos = cantidadArticulos;
-}
-
-
-float getMonto(Local *local){
-    return local.monto;
-}
-void setMonto(Local *local, float monto){
-    if(monto >= 0) local.monto = monto;
+void setProvincia(Local local, tProvincia provincia){
+    local->provincia = provincia;
 }
 
 
-float getMetros(Local *local){
-    return local.metros;
+int getCantidadArticulos(Local local){
+    return local->cantidadArticulos;
 }
-void setMetros(Local *local, float metros){
-    if(metros > 0) local.metros = metros;
+void setCantidadArticulos(Local local, int cantidadArticulos){
+    if(cantidadArticulos >= 0) local->cantidadArticulos = cantidadArticulos;
 }
 
 
-int getCasaMatriz(Local *local){
-    return local.casaMatriz;
+float getMonto(Local local){
+    return local->monto;
 }
-void setCasaMatriz(Local *local, int casaMatriz){
-    if(casaMatriz > 0) local.casaMatriz = casaMatriz;
+void setMonto(Local local, float monto){
+    if(monto >= 0) local->monto = monto;
+}
+
+
+float getMetros(Local local){
+    return local->metros;
+}
+void setMetros(Local local, float metros){
+    if(metros > 0) local->metros = metros;
+}
+
+
+int getCasaMatriz(Local local){
+    return local->casaMatriz;
+}
+void setCasaMatriz(Local local, int casaMatriz){
+    if(casaMatriz > 0) local->casaMatriz = casaMatriz;
 }
 
 /********************************************************************************************************************************/
 
 //Métodos
 
-void mostrarLocal(Local *local){
-    cout << "Codigo sucursal: " << getCodigoSucursal() << endl;
-    cout << "Provincia: " << getProvincia() << endl;
-    cout << "Cantidad Articulos: " << getCantidadArticulos() << endl;
-    cout << "Monto: " << getMonto() << endl;
-    cout << "Metros: " << getMetros() << endl;
-    cout << "Casa Matriz: " << getCasaMatriz() << endl;
+void mostrarLocal(Local local){
+    cout << "Codigo sucursal: "     << local->codigoSucursal    << endl;
+    cout << "Provincia: "           << local->provincia         << endl;
+    cout << "Cantidad Articulos: "  << local->cantidadArticulos << endl;
+    cout << "Monto: "               << local->monto             << endl;
+    cout << "Metros: "              << local->metros            << endl;
+    cout << "Casa Matriz: "         << local->casaMatriz        << endl;
 }

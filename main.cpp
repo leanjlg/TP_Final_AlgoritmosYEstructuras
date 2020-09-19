@@ -28,7 +28,7 @@ int main()
     char aux[100];
 
     while(!feof(archivo1) ){ //Mientras no se llegue al fin del archivo
-        fgets((aux, 100, archivo1);
+        fgets(aux, 100, archivo1);
         //La intrucción "fgets" lee todo lo que hay hasta que se encuentra un \n o se queda sin espacio
         //Lo que se lee se guarda en aux
         //Se indica que lea un máximo de hasta 100 caracteres (esto esta mal porque el tamaño tendría que ser justo de la cantidad que se lee, de lo contrario sobra o falta espacio)
@@ -45,27 +45,36 @@ int main()
     for(int i=0; strlen(aux); i++){ //Recorro todo el string en donde se guardaron los datos
     //Optimizar esto que es horrible a los ojos
 
+        char auxCodigoSucursal[i-desde];
+        int codigoSucursal;
+        char auxProvincia[i-desde];
+        char auxCantidadArticulos[i-desde];
+        int cantidadArticulos;
+        char auxMonto[i-desde];
+        float monto;
+        char auxMetros[i-desde];
+        float metros;
+        char auxCasaMatriz[i-desde];
+        int casaMatriz;
 
         if(aux[i] == '-'){          //Indico en donde se separan los datos
-            char auxCodigoSucursal[i-desde];
 
             for(desde; i; desde++){
                 int x = 0;
-                auxCodigoSucursal[x] == strcat(auxCodigoSucursal, aux[desde]);
+                auxCodigoSucursal[x] == aux[desde];
                 x++;
             }
             desde = i;
 
-            int codigoSucursal = int(auxCodigoSucursal);
+            codigoSucursal = atoi(auxCodigoSucursal);
         }
 
 
         if(aux[i] == '-'){
-            char auxProvincia[i-desde];
 
             for(desde; i; desde++){
                 int x = 0;
-                auxProvincia[x] == strcat(auxProvincia, aux[desde]);
+                auxProvincia[x] == aux[desde];
                 x++;
             }
             desde = i;
@@ -73,61 +82,58 @@ int main()
 
 
         if(aux[i] == '-'){
-            char auxCantidadArticulos[i-desde];
 
             for(desde; i; desde++){
                 int x = 0;
-                auxCantidadArticulos[x] == strcat(auxCantidadArticulos, aux[desde]);
+                auxCantidadArticulos[x] == aux[desde];
                 x++;
             }
             desde = i;
 
-            int cantidadArticulos = int (auxCantidadArticulos);
+            cantidadArticulos = atoi(auxCantidadArticulos);
         }
 
 
         if(aux[i] == '-'){
-            char auxMonto[i-desde];
 
             for(desde; i; desde++){
                 int x = 0;
-                auxMonto[x] == strcat(auxMonto, aux[desde]);
+                auxMonto[x] == aux[desde];
                 x++;
             }
             desde = i;
 
-            float monto = atof(auxMonto);
+            monto = atof(auxMonto);
         }
 
 
         if(aux[i] == '-'){
-            char auxMetros[i-desde];
 
             for(desde; i; desde++){
                 int x = 0;
-                auxMetros[x] == strcat(auxMetros, aux[desde]);
+                auxMetros[x] == aux[desde];
                 x++;
             }
             desde = i;
 
-            int metros = atof (auxMonto);
+            metros = atof (auxMonto);
         }
 
 
         if(aux[i] == '-'){          //Indico en donde se separan los datos
-            char auxCasaMatriz[i-desde];
 
             for(desde; i; desde++){
                 int x = 0;
-                auxCasaMatriz[x] == strcat(auxCasaMatriz, aux[desde]);
+                auxCasaMatriz[x] == aux[desde];
                 x++;
             }
             desde = i;
 
-            int casaMatriz = int(auxCasaMatriz);
+            casaMatriz = atoi(auxCasaMatriz);
         }
 
         //Aca se supone que se empiezan a repetir las variables
+        mostrarLocal(crearLocal(codigoSucursal,auxProvincia,cantidadArticulos,monto,metros,casaMatriz) );
     }
 
 
